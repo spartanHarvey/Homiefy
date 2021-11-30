@@ -1,3 +1,11 @@
+/*
+
+TemplateMo 564 Plot Listing
+
+https://templatemo.com/tm-564-plot-listing
+
+*/
+
 /* ---------------------------------------------
 Table of contents
 ------------------------------------------------
@@ -821,13 +829,13 @@ Banner Style
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../img/banner-bg.jpg);
-  padding: 290px 0px 298px 0px;
+  padding: 100px 0px 298px 0px;
   position: relative;
   overflow: hidden;
 }
 
 .main-banner .top-text {
-  text-align: center;
+  text-align:left;
 }
 
 .main-banner .top-text h6 {
@@ -842,8 +850,39 @@ Banner Style
   font-size: 45px;
   font-weight: 800;
   text-transform: capitalize;
-  margin-top: 15px;
+  margin-top: 0px;
   margin-bottom: 45px;
+}
+.main-banner .container-fluid h3 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color:darkgrey;
+  background-size: 230%;
+  float: left;
+}
+.main-banner .container-fluid h4 {
+  color: rgb(17, 16, 16);
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  float: right;
+  margin-left: 525px;
+  background-color: #f8f6f6;
+}
+.main-banner h2{
+  color: rgb(15, 10, 10);
+  font-size: 45px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-top: 20px;
+  margin-bottom: 45px;
+
 }
 
 .main-banner ul.categories {
@@ -884,6 +923,28 @@ Banner Style
 
 .main-banner ul.categories li .icon img {
   max-width: 27px;
+}
+
+
+.float-child-1 {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 65px;
+  font-size: 25px;
+  background-color:#8d99af;
+  text-align: center;
+  border: 0px solid rgb(15, 15, 15);
+}
+.float-child-2 {
+  width: 50%;
+  float: right;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  background-color: #e7e7e7;
+  border: 0px solid rgb(15, 15, 15);
 }
 
 form#search-form {
