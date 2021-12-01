@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homeify- About Us</title>
+	
+	
+    <link rel="stylesheet" href="../public/css/contact-index.css">
+
+    <script src="ho.js"></script>
+    
+</head>
+<body>
+<header class="header-area header-sticky wow slideInDown">
+	<div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="home.html" class="logo">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="home.html" class="active">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact Us</a></li> 
+              <li><div class="main-white-button"><a href="javascript: #show-login1();" id="show-login1"><i class="fa fa-plus"></i> LOG IN / Register</a></div></li> 
+            </ul>        
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="main-banner">
+    <h2>Contact Us</h2>
+    <h3>If you have any queries, Feel free to contact one of us via E-mail:</h3>
+    <div class="float-container">
+
+        <div class="float-child-1">
+            <h3>Ngimbi Jorge</h3>
+            <h3>Email : jnngimbi@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>  
+  
+        <div class="float-child-2">
+            <h3>Sai Sree Mareddy</h3>
+            <h3>Email : smaredd3@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>
+        <div class="float-child-3">
+            <h3>Sai Harsha Tata</h3>
+            <h3>Email : stata@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>  
+    </div>  
+
+<div class="container-fluid">
+  <div class="row">
+  
+    <div class="col-lg-12">
+      <div class="top-text header-text">
+        
+      </div>
+    </div>
+<div class="registerForm">
+    <!-- <form method="POST" action="https://homiefy-group-a.herokuapp.com/register" enctype="multipart/form-data"> -->
+    <form method="POST" action="/api/auth/register" enctype="multipart/form-data">
+        <!--h3>Sign Up</h3> -->
+        <div class="close-btn">&times;</div>
+        <div class="form-group fname">
+            <!-- <label>First name</label> -->
+            <input type="text" name="fname" class="form-control" placeholder="First name" required />
+        </div>
+
+        <div class="form-group">
+            <!-- <label>Last name</label> -->
+            <input type="text" name="lname" class="form-control" placeholder="Last name" required />
+        </div>
+
+        <div class="form-group">
+            <!-- <label>Email address</label> -->
+            <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                class="form-control" placeholder="Enter email" required />
+        </div>
+
+        <div>
+            <input type="file" name="profilePicture" accept=".jpg, .jpeg, .png">
+        </div>
+
+        <div class="form-group">
+            <!-- <label>Password</label> -->
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+        </div>
+
+        <button class="main-white-button" type="submit">Register</button>
+        <p class="text-white">Already registered? <a id="show-login2">Log in</a></p>
+    </form>
+
+
+</div>
+
+<div class="loginForm ">
+    <!-- <form method="POST" action="https://homiefy-group-a.herokuapp.com/login" enctype="multipart/form-data"> -->
+    <form method="POST" action="/api/auth/login" Content-Type="application/json">
+        <!--<h3>LOG IN FORM</h3> -->
+
+
+        <div class="close-btn">&times;</div>
+        <div class="form-group">
+            <!-- <label>Email address</label> -->
+            <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                class="form-control" placeholder="Enter email" required />
+        </div>
+
+        <div class="form-group">
+            <!-- <label>Password</label> -->
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+        </div>
+
+        <button class="main-white-button" type="submit">Log in</button>
+        <p class="message text-white">Not registered? <a id="show-register">Register</a></p>
+    </form>
+
+</div>
+<script src="../js/index.js"></script>
+<!-- 
+    <div class="loginForm">
+        <form method="POST" action="http://localhost:8001/login">
+          
+            <div class="form-group" >
+               
+                <input type="text" name="email" class="form-control" placeholder="Email" required/>
+            </div>
+            <div class="form-group">
+                
+                <input type="password" name="password" class="form-control" placeholder="password" required/>
+            </div>
+            <button class="btn" type="submit">Login</button>
+            <p class="message">
+                Don't have an account? <a href="/#">Register now?</a>
+            </p>
+        </form>
+    </div> -->
+<!--
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+</script>
+<script>
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    })
+</script>-->
+</body>
+</html>
