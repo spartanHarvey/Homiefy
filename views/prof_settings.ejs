@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+</head>
+<body style="background-color: gainsboro;">
+<div class="container rounded bg-white mt-5 mb-5">
+<link rel="stylesheet" href="profile.css">
+    <div class="row" class="form-control">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><br><span class="font-weight-bold">User</span><br><span class="text-black-50">sample@email.com</span><span> </span></div>
+        </div>
+        <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-center">Profile Settings</h4>
+                </div>
+                <br>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels"><h3>Active Mode</h3></label>
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </label></div>
+                                <div class="col-md-6">
+                         <label class="switch">
+                                  <input type="checkbox" id="activity">
+                                  <span class="slider round"></span>
+                                </label></div>
+                </div>
+                <br>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels"><h3>Visibility Mode</h3></label>
+                          
+                    </div>
+                    <div class="col-md-6">&nbsp;
+                          <input type="radio" id="OnlyMe"  name="visbility"  value="Only Me">
+                          <label for="OnlyMe">Only Me</label><br>
+                          <input type="radio" id="MyConnections"  name="visbility" value="My Connections">
+                          <label for="MyConnections">My Connections</label><br>
+                          <input type="radio" id="Everyone"  name="visbility" value="Everyone">
+                          <label for="Everyone">Everyone</label>
+                    </div>
+                    
+                </div>
+                <br>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels"><h3>Request Permission</h3></label>
+                          
+                    </div>
+                    <div class="col-md-6">&nbsp;
+                          <input type="radio" id="MutualCollege" name="Request" value="Mutual College">
+                          <label for="MutualCollege">Mutual College</label><br>
+                          <input type="radio" id="MutualConnections"  name="Request" value="Mutual Connections">
+                          <label for="MutualConnections">Mutual Connections</label><br>
+                          <input type="radio" id="MutualArea"  name="Request" value="Mutual Area">
+                          <label for="MutualArea">Mutual Area</label>
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button form-control" type="button">Save Profile</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
