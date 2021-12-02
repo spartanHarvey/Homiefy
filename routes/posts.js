@@ -1,11 +1,14 @@
 const router = require('express').Router()
 const Post = require('../db/models/Post')
 const User = require('../db/models/User')
+
 const Comment = require('../db/models/Comment')
 var moment = require('moment'); 
 
 
+
 router.get('/post/:postid', async(req,res)=> {
+
 
     if (!req.session.currentUser){
 
@@ -35,9 +38,11 @@ router.get('/post/:postid', async(req,res)=> {
     }catch(err){
 
         res.status(500).send(err.message);
+
     }
 
 });
+
 
 
 router.post('/post/:id', async(req,res) => {
@@ -72,6 +77,7 @@ router.post('/post/:id', async(req,res) => {
 
         if(process.env.NODE_ENV === 'test') return res.status(201).send(post);
         res.status(201).redirect('/')
+
     }
     catch(err){
 
@@ -81,6 +87,7 @@ router.post('/post/:id', async(req,res) => {
    
 
 });
+
 
 
 router.post('/post/:id/:postid', async(req,res) => {
@@ -98,10 +105,12 @@ router.post('/post/:id/:postid', async(req,res) => {
 
     }
 
+
     
     
     try{
         const oldPost = await Post.findById(req.params.postid)
+
         if(!oldPost){ 
             if(process.env.NODE_ENV === 'test') 
             
@@ -117,6 +126,7 @@ router.post('/post/:id/:postid', async(req,res) => {
         await updatedPost.save();
         if(process.env.NODE_ENV === 'test') return res.status(201).send(updatedPost);
         res.redirect(200,'/')
+
     }
     catch(err){
 
