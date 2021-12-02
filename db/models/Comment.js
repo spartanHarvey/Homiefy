@@ -17,8 +17,5 @@ const commentSchema = new Schema({
 {timestamps:true},
 { collection : 'comments' }
 );
-
-==
-
 module.exports = mongoose.model("Comment", commentSchema)
 
