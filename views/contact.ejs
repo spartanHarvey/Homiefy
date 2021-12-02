@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homeify- Contact Us</title>
+	
+	
+    <link rel="stylesheet" href="../css/contact-index.css">
+
+    <script src="ho.js"></script>
+    
+</head>
+<body>
+<header class="header-area header-sticky wow slideInDown">
+	<div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            
+            <a href="/index" class="logo">
+            </a>
+           
+            <ul class="nav">
+              <li><a href="/index" class="active">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact Us</a></li> 
+              <li><div class="main-white-button"><a href="javascript: #show-login1();" id="show-login1"><i class="fa fa-plus"></i> LOG IN / Register</a></div></li> 
+            </ul>        
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="main-banner">
+    <h2>Contact Us</h2>
+    <h3>If you have any queries, Feel free to contact one of us via E-mail:</h3>
+    <div class="float-container">
+
+        <div class="float-child-1">
+            <h3>Ngimbi Jorge</h3>
+            <h3>Email : jnngimbi@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>  
+  
+        <div class="float-child-2">
+            <h3>Sai Sree Mareddy</h3>
+            <h3>Email : smaredd3@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>
+        <div class="float-child-3">
+            <h3>Sai Harsha Tata</h3>
+            <h3>Email : stata@cougarnet.uh.edu</h3>
+            <h3>Address: PGH 232,</h3>
+            <h3>4800 calhoun, Houston</h3>
+            <h3>TX, 77004</h3>
+        </div>  
+    </div>  
+
+<div class="container-fluid">
+  <div class="row">
+  
+    <div class="col-lg-12">
+      <div class="top-text header-text">
+        
+      </div>
+    </div>
+<div class="registerForm">
+    
+    <form method="POST" action="/api/auth/register" enctype="multipart/form-data">
+        
+        <div class="close-btn">&times;</div>
+        <div class="form-group fname">
+            
+            <input type="text" name="fname" class="form-control" placeholder="First name" required />
+        </div>
+
+        <div class="form-group">
+            
+            <input type="text" name="lname" class="form-control" placeholder="Last name" required />
+        </div>
+
+        <div class="form-group">
+            
+            <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                class="form-control" placeholder="Enter email" required />
+        </div>
+
+        <div>
+            <input type="file" name="profilePicture" accept=".jpg, .jpeg, .png">
+        </div>
+
+        <div class="form-group">
+            
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+        </div>
+
+        <button class="main-white-button" type="submit">Register</button>
+        <p class="text-white">Already registered? <a id="show-login2">Log in</a></p>
+    </form>
+
+
+</div>
+
+<div class="loginForm ">
+    
+    <form method="POST" action="/api/auth/login" Content-Type="application/json">
+        
+        <div class="close-btn">&times;</div>
+        <div class="form-group">
+            
+            <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                class="form-control" placeholder="Enter email" required />
+        </div>
+
+        <div class="form-group">
+            
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+        </div>
+
+        <button class="main-white-button" type="submit">Log in</button>
+        <p class="message text-white">Not registered? <a id="show-register">Register</a></p>
+    </form>
+
+</div>
+<script src="../js/index.js"></script>
+</body>
+</html>
