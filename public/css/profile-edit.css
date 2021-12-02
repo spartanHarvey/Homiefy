@@ -1,7 +1,7 @@
 body {
-    background: #e2e8f0
+    
+    background-color: #10214d;
 }
-
 .form-control:focus {
     box-shadow: none;
     border-color: #BA68C8
@@ -33,20 +33,20 @@ body {
 }
 
 .labels {
-    font-size: 11px
+    font-size: 11px;
+    
 }
 
 .add-experience:hover {
     background: #e2e8f0;
-    color: #fff;
+    color: #e2e8f0;
     cursor: pointer;
     border: solid 1px #e2e8f0
 }
 
 
 .navbar{
-    background-color: #c5cee4;
-
+    background-color: #ced2da;
 }
 
 
