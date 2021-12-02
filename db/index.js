@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');;
-// global.TextEncoder = require("util").TextEncoder;
-// global.TextDecoder = require("util").TextDecoder;
+
+const mongoose = require('mongoose');
 const config = require('../config')
 const database_url = config.database_url;
 const test_database_url = config.test_database_url;
@@ -49,4 +48,6 @@ async function dropDB(){
       await collection.deleteOne()
     }
 }
-module.exports = {connect, close, mongoose, dropDB};
+
+module.exports = {connect, close, dropDB};
+

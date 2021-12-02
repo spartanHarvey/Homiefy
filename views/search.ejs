@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Page</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="../css/search.css">
+
+</head>
+<body>
+    <!-- <link rel="stylesheet" href="../css/navbar.css"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="/">Homiefy</a>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="navbar-nav">
+                        </ul>
+                        <form class="form-inline" action="/home/<%=currentuser._id%>/keyword=" method="POST">
+                        
+                        <input class="form-control mr-sm-2" type="text" name="keyword"/> <button class="btn btn-primary my-2 my-sm-0" type="submit"> Search </button>
+                     </form>
+                        
+                        <ul class="navbar-nav ml-md-auto">
+                          <li class="nav-item dropdown"> 
+                            <div class="dropdown">
+                              
+                              <div class="profile"> 
+                                
+                                <% if(typeof currentuser.profilePicture != 'undefined'){ %>
+    
+                                    
+                                  <img class="drop-btn" src="<%=currentuser.profilePicture%>">
+                                  
+                                <% } else{ %>  
+                                  <img class="drop-btn" width="30px"src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png">
+                               <% } %>
+                                  <div class="dropdown-content">
+                                      <ul>
+                                          <li><i class='bx bx-user'></i><span><a href="/api/users/profile/<%=currentuser._id%>">Profile</a></span></li>
+                                          <li><i class='bx bx-cog'></i><span><a href="/profile-edit">Settings</a></span></li>
+                                          <li><i class='bx bx-log-in-circle'></i><span><a href="/api/auth/logout">Logout</a></span></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                            </div>
+                          </li>                    
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="event-schedule-area-two bg-color pad100">
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-lg-12">
+               
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade active show" id="home" role="tabpanel">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">Profile</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Post </th>
+                                        <th scope="col">College</th>
+                                        <th scope="col">Major</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+
+
+                                    <% if(length == 0 ){ %>
+
+                                        <tr class="inner-box">
+                                            <td>
+                                                No results were found
+                                              
+                                        </td>
+                                      
+                                      <% } else{ %>  
+
+                                        
+                                        <% for (var i = 0; i < length ; i++) { %>
+                                        <tr class="inner-box">
+                                            <td>
+                                                <div class="event-img">
+                                                    <% if(typeof results[i].profilePicture != 'undefined'){ %>
+                                                        <img class="rounded-circle" width="100px"  src="<%=results[i].profilePicture%>">  
+                                                        <!-- <img   src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" /> -->
+                                                      <% } else{ %>  
+                                                        
+                                                        <a href="/api/users/profile/<%=results[i]._id%>"><img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" width="45"></a>
+                                                        <% } %>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                            <div class="event-wrap">
+                                                
+                                                <% if(typeof results[i].whoPosted != 'undefined'){ %>
+                                                    <h3><a href="/api/users/profile/<%=results[i].whoPosted._id%>"><%= results[i].whoPosted.firstName%> <%= results[i].whoPosted.lastName%></a></h3>
+                                                    <% } else{ %>  
+                                                        
+                                                        
+                                                        <h3><a href="/api/users/profile/<%=results[i]._id%>"><%= results[i].firstName%> <%= results[i].lastName%></a></h3>
+                                                        <% } %>
+                                                        
+                                                
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <th scope="row">
+                                                <div class="event-date">
+                                                <span><a href="/api/posts/post/<%=results[i]._id%>"><%= results[0].title%></a></span>
+                                                <p><a href="/api/posts/post/<%=results[i]._id%>"><%= results[i].body%></a></p>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="r-no">
+                                                
+                                                <% if(typeof results[i].college != 'undefined'){ %>
+                                                    
+                                                    <span><%= results[i].college.name%></span>
+
+                                                    <% } else if (results[i].whoPosted.college.name == '') { %>
+                                                        
+                                                        <span>empty</span>
+                                                        <% } else{ %>  
+                                                            <span><%=results[i].whoPosted.college.name%></span>
+
+                                                    
+                                                    <% } %>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="r-no">
+                                                
+                                                    <% if(typeof results[i].college != 'undefined'){ %>
+                                                        <span><%= results[i].college.major%></span>
+                                                        
+                                                        <% } else{ %>  
+                                                            <span><%=results[i].whoPosted.college.major%></span>
+                                                            
+                                                            <% } %>
+                                                        </div>
+                                                    </td>
+                                            </tr>
+                                            <%}%>
+                                            
+                                                    
+                                            <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+            <!-- /col end-->
+        </div>
+        <!-- /row end-->
+    </div>
+</div>
+
+
+    <script>
+        $(document).ready(function(){
+           $('.dropdown-toggle').dropdown()
+       });
+       </script>
+</body>
+</html>

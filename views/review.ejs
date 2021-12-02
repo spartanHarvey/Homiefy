@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Page</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="../css/posts.css">
+
+</head>
+<body>
+ 
+      <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="/">Homiefy</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="navbar-nav">
+                        <!-- <li class="nav-item active"> <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a> </li> -->
+                    </ul>
+                    <form class="form-inline"> <input class="form-control mr-sm-2" type="text" /> <button class="btn btn-primary my-2 my-sm-0" type="submit"> Search </button> </form>
+                    
+                    <ul class="navbar-nav ml-md-auto">
+                      <li class="nav-item dropdown"> 
+                        <div class="dropdown">
+                          
+                          <div class="profile"> 
+                            
+                            <% if(typeof user.profilePicture != 'undefined'){ %>
+
+                                
+                              <img class="drop-btn" src="<%=user.profilePicture%>">
+                              
+                            <% } else{ %>  
+                              <img class="drop-btn" width="30px"src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png">
+                           <% } %>
+                              <div class="dropdown-content">
+                                  <ul>
+                                      <li><i class='bx bx-user'></i><span><a href="/api/users/profile/<%=currentuser._id%>">Profile</a></span></li>
+                                      <li><i class='bx bx-cog'></i><span><a href="/profile-edit">Settings</a></span></li>
+                                      <li><i class='bx bx-log-in-circle'></i><span><a href="/api/auth/logout">Logout</a></span></li>
+                                  </ul>
+                              </div>
+                          </div>
+                        </div>
+                      </li>                    
+                  </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="container mt-4 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10">
+              <div class="bg-light border mt-2">
+                  
+                  <div>
+                      <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                          <div class="d-flex flex-row align-items-center feed-text px-2">
+
+                            
+                          </div>
+                          <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                      </div>
+                      
+                  </div>
+                  
+                
+                </div>
+                <div class="col-md-28">
+                       
+                  
+                  <div class="card mt-2 p-3 mb-2">
+                      <div class="d-flex flex-row"> 
+                        
+                  
+                </div>
+              
+              <div class="container mt-3 d-flex justify-content-center ">
+                
+                <div class="row d-flex justify-content-start mr-2">
+                    
+                </div>
+            </div>
+              
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+           $('.dropdown-toggle').dropdown()
+       });
+       </script>
+</body>
+</html>

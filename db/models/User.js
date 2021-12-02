@@ -11,6 +11,7 @@ const UserSchema = new Schema({
     profilePicture: { type: String},
     college: {
         type:Object,
+        default:{name:'',major:'',year:'',url:''},
         name: {
             type:String
         },
@@ -25,24 +26,33 @@ const UserSchema = new Schema({
         }
     },
     socialMediaLinks:{
-        type:Map,
-        of:String,
-        name: {
+
+        type:Object,
+        default:{facebook:'',twitter:'',linkedin:'',instagram:''},
+        facebook: {
             type:String
         },
-        year:{
+        twitter:{
+            type:String
+        },
+        linkedin:{
+            type:String
+        },
+        instagram:{
             type:String
         }
     },
-    following:{type: Array, default:[]},
-    followers:{type: Array, default:[]},
-    // posts: {}
-    // bio: { type: String, match: /[a-z]/ },
-    date: { type: Date, default: Date.now },
-   
-
+    accountConfig:{
+        type:Object,
+        isActive: {
+            type:String
+        },
+        isVisiable:{
+            type:String
+        }
+    }
 },
-{timestamps:true},
+{timestamps:true, minimize:false},
 { collection : 'users' }
 );
 

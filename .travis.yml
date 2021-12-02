@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+  - 10.19.0
+
+before_script:
+  - npm install
+  
+services:
+  - docker
+
+before_install:
+  - docker build -t homiefy-app-image .
+  - docker run -p  8001:8001 -d --name homiefy-app-container homiefy-app-image
+  - docker ps -a
+
+env:
+  global:
+    - PORT=$port
+    - DATABASE_URL=$database_url
+    - TEST_DATABASE_URL=$test_database_url
+    - NODE_ENV=$node_env
+script:
+  - npm test
+
+after_script:
+  - docker stop homiefy-app-container
+  - docker rm homiefy-app-container

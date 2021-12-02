@@ -14,50 +14,108 @@
     
 </head>
 <body>
-    <nav aria-label="breadcrumb" class="main-breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item"><a href="/profile">Profile</a></li>
-          <li class="breadcrumb-item active" aria-current="page"><a href="/profile/edit">Edit Profile</a></li>
-        </ol>
-      </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="/">Homiefy</a>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="navbar-nav">
+                        </ul>
+                        <form class="form-inline" action="/home/<%=currentuser._id%>/keyword=" method="POST">
+                    
+                            <input class="form-control mr-sm-2" type="text" name="keyword"/> <button class="btn btn-primary my-2 my-sm-0" type="submit"> Search </button>
+                         </form>                        
+                        <ul class="navbar-nav ml-md-auto">
+                          <li class="nav-item dropdown"> 
+                            <div class="dropdown">
+                              
+                              <div class="profile"> 
+                                
+                                <% if(typeof currentuser.profilePicture != 'undefined'){ %>
+    
+                                    
+                                  <img class="drop-btn" src="<%=currentuser.profilePicture%>">
+                                  
+                                <% } else{ %>  
+                                  <img class="drop-btn" width="30px" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png">
+                               <% } %>
+                                  <div class="dropdown-content">
+                                      <ul>
+                                          <li><i class='bx bx-user'></i><span><a href="/api/users/profile/<%=currentuser._id%>">Profile</a></span></li>
+                                          <li><i class='bx bx-cog'></i><span><a href="/api/users/profile-edit/<%=currentuser._id%>">Settings</a></span></li>
+                                          <li><i class='bx bx-log-in-circle'></i><span><a href="/api/auth/logout">Logout</a></span></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                            </div>
+                          </li>                    
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
     <div class="container rounded bg-white mt-5 mb-5">
+        <form action="/api/users/profile-edit/<%=currentuser._id%>" enctype="application/json"  method="POST">
         <div class="row">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="<%-img%>"><span class="font-weight-bold"><%=fname%></span><span class="text-black-50"><%=fname%></span><span> </span></div>
+
+                <% if(typeof currentuser.profilePicture != 'undefined'){ %>
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="<%=currentuser.profilePicture%>"><span class="font-weight-bold"><%=currentuser.firstName%></span><span class="text-black-50"><%=currentuser.firstNam%></span><span> </span></div>
+                    
+                  <% } else{ %>  
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"><span class="font-weight-bold"><%=currentuser.firstName%></span><span class="text-black-50"><%=currentuser.firstNam%></span><span> </span></div>
+                    
+                 <% } %>
+                 <!-- <input  type="file" name="profilePicture" accept=".jpg, .jpeg, .png"> -->
+
             </div>
+            
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" disabled="true"class="form-control" placeholder="First Name" value="<%=fname%>"></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" disabled="true"class="form-control" value="<%=lname%>" placeholder="Last Name"></div>
+                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" disabled="true"class="form-control" placeholder="First Name" value="<%=currentuser.firstName%>"></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" disabled="true"class="form-control" value="<%=currentuser.lastName%>" placeholder="Last Name"></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text"  disabled="true"class="form-control" placeholder="Email" value="<%=email%>"></div>
-                        <div class="col-md-12"><label class="labels">New Password</label><input type="password" class="form-control" placeholder="Password" value=""></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text"  disabled="true" name="email" class="form-control" placeholder="Email" value="<%=currentuser.email%>"></div>
+                        <div class="col-md-12"><label class="labels">New Password</label><input type="password" name="password"class="form-control" placeholder="Password" value=""></div>
                         <div class="col-md-12"><label class="labels">Comfirm Password</label><input type="password" class="form-control" placeholder="Confirm Password" value=""></div>
-                        <div class="col-md-12"><label class="labels">University</label><input type="text" class="form-control" placeholder="University" value="<%=college.name.stringValue%>"></div>
-                        <div class="col-md-12"><label class="labels">Major</label><input type="text" class="form-control" placeholder="Major" value="<%=college.major.stringValue%>"></div>
                         
-                        <% if(social){ %>
-                            <div class="col-md-12"><label class="labels">Social Media</label><input type="text" class="form-control" placeholder="Facebook" value="<%=social.facebook.stringValue%>"></div>
-                            <div class="col-md-12"><label class="labels"></label><input type="link" class="form-control" placeholder="Twitter" value="<%=social.twitter.stringValue%>"></div>
-                            <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control" placeholder="Linkedin" value="<%=social.linkedin.stringValue%>"></div>
+                        <% if(typeof currentuser.college != 'undefined'){ %>
+                            <div class="col-md-12"><label class="labels">University</label><input type="text" name="college.name" class="form-control" placeholder="University Name" value="<%=currentuser.college.name%>"></div>
+                            <div class="col-md-12"><label class="labels">University website</label><input type="text" name="college.url" class="form-control" placeholder="ex: uh.edu" value="<%=currentuser.college.url%>"></div>
+                            <div class="col-md-12"><label class="labels">Major</label><input type="text" name="college.major" class="form-control" placeholder="Major" value="<%=currentuser.college.major%>"></div>
+                            <div class="col-md-12"><label class="labels">Year</label><input type="text" name="college.year" class="form-control" placeholder="ex: senior" value="<%=currentuser.college.year%>"></div>
+                            
+                            <% } else{ %> 
+                                <div class="col-md-12"><label class="labels">University</label><input type="text" name="college.name" class="form-control" placeholder="University Name" value=""></div>
+                                <div class="col-md-12"><label class="labels">University website</label><input type="text" name="college.url" class="form-control" placeholder="ex: uh.edu" value=""></div>
+                                <div class="col-md-12"><label class="labels">Major</label><input type="text" name="college.major" class="form-control" placeholder="Major" value=""></div>
+
+                        <% } %>
+
+                        
+                        <% if(typeof currentuser.socialMediaLinks != 'undefined'){ %>
+                            <div class="col-md-12"><label class="labels">Social Media</label><input name="socialMediaLinks.facebook" type="text" class="form-control" placeholder="Facebook profile link" value="<%=currentuser.socialMediaLinks.facebook%>"></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="text" name="socialMediaLinks.linkedin" class="form-control" placeholder="Linkedin profile link" value="<%=currentuser.socialMediaLinks.linkedin%>"></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="link" name="socialMediaLinks.twitter" class="form-control" placeholder="Twitter profile link" value="<%=currentuser.socialMediaLinks.twitter%>"></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="text" name="socialMediaLinks.instagram" class="form-control" placeholder="Instagram username" value="<%=currentuser.socialMediaLinks.instagram%>"></div>
+
                           <% } else{ %>  
-                            <div class="col-md-12"><label class="labels">Social Media</label><input type="text" class="form-control" placeholder="Facebook" value=""></div>
-                            <div class="col-md-12"><label class="labels"></label><input type="link" class="form-control" placeholder="Twitter" value=""></div>
-                            <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control" placeholder="Linkedin" value=""></div>
+                            <div class="col-md-12"><label class="labels">Social Media</label><input name="socialMediaLinks.facebook" type="text" class="form-control" placeholder="Facebook profile link" value=""></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="text" name="socialMediaLinks.linkedin" class="form-control" placeholder="Linkedin profile link" value=""></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="link" name="socialMediaLinks.twitter" class="form-control" placeholder="Twitter username" value=""></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="link" name="socialMediaLinks.instagram" class="form-control" placeholder="Instagram username" value=""></div>
                           
                             <% } %>
                       </div>
-                    <!-- <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                    </div> -->
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                   
+                    <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -71,7 +129,9 @@
                
             </div>
         </div>
+    </form>
     </div>
+
     </div>
     </div>
 
