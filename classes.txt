@@ -1,5 +1,6 @@
 My team and I decide to use NoSQL database for this project so classes will not be used. Instead we will be using JSON
 
-User Model [first name, last name, email, password, college info, social media links, following as followers]
-Post Model[title, body, image, comments, likes, who posted, date]
-Review Model[ who posted, who got reviewed, to, test field]
+User Model [first name, last name, email, password, college info, social media links]
+Post Model[title, body, image, comments, reference to who posted, date]
+Comment Model [text, reference to who commented, reference to the post]
+Review Model[ refence to who review, reference to who got reviewed, the review text]
