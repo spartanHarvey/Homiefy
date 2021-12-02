@@ -43,7 +43,7 @@
                                       <ul>
                                           <li><i class='bx bx-user'></i><span><a href="/api/users/profile/<%=currentuser._id%>">Profile</a></span></li>
                                           <li><i class='bx bx-cog'></i><span><a href="/api/users/profile-edit/<%=currentuser._id%>">Settings</a></span></li>
-                                          <li><i class='bx bx-log-in-circle'></i><span><a href="/">Logout</a></span></li>
+                                          <li><i class='bx bx-log-in-circle'></i><span><a href="/api/auth/logout">Logout</a></span></li>
                                       </ul>
                                   </div>
                               </div>
@@ -90,6 +90,7 @@
                             <div class="col-md-12"><label class="labels">University</label><input type="text" name="college.name" class="form-control" placeholder="University Name" value="<%=currentuser.college.name%>"></div>
                             <div class="col-md-12"><label class="labels">University website</label><input type="text" name="college.url" class="form-control" placeholder="ex: uh.edu" value="<%=currentuser.college.url%>"></div>
                             <div class="col-md-12"><label class="labels">Major</label><input type="text" name="college.major" class="form-control" placeholder="Major" value="<%=currentuser.college.major%>"></div>
+                            <div class="col-md-12"><label class="labels">Year</label><input type="text" name="college.year" class="form-control" placeholder="ex: senior" value="<%=currentuser.college.year%>"></div>
                             
                             <% } else{ %> 
                                 <div class="col-md-12"><label class="labels">University</label><input type="text" name="college.name" class="form-control" placeholder="University Name" value=""></div>
@@ -109,7 +110,7 @@
                             <div class="col-md-12"><label class="labels">Social Media</label><input name="socialMediaLinks.facebook" type="text" class="form-control" placeholder="Facebook profile link" value=""></div>
                             <div class="col-md-12"><label class="labels"></label><input type="text" name="socialMediaLinks.linkedin" class="form-control" placeholder="Linkedin profile link" value=""></div>
                             <div class="col-md-12"><label class="labels"></label><input type="link" name="socialMediaLinks.twitter" class="form-control" placeholder="Twitter username" value=""></div>
-                            <div class="col-md-12"><label class="labels"></label><input type="text" name="socialMediaLinks.instagram" class="form-control" placeholder="Instagram username"></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="link" name="socialMediaLinks.instagram" class="form-control" placeholder="Instagram username" value=""></div>
                           
                             <% } %>
                       </div>

@@ -41,7 +41,7 @@
                                   <ul>
                                       <li><i class='bx bx-user'></i><span><a href="/api/users/profile/<%=currentuser._id%>">Profile</a></span></li>
                                       <li><i class='bx bx-cog'></i><span><a href="/api/users/profile-edit/<%=currentuser._id%>">Settings</a></span></li>
-                                      <li><i class='bx bx-log-in-circle'></i><span><a href="/">Logout</a></span></li>
+                                      <li><i class='bx bx-log-in-circle'></i><span><a href="/api/auth/logout">Logout</a></span></li>
                                   </ul>
                               </div>
                           </div>
@@ -74,7 +74,7 @@
                           <h4><%=user.firstName%></h4>
 
                           <% if(typeof user.college != 'undefined'){ %>
-                            <p class="text-secondary mb-1"><%=user.college.name %></p>
+                            <p class="text-secondary mb-1"><%=user.college.year %></p>
                             
                           <% } else{ %>  
                             <p class="text-secondary mb-1">empty</p>
