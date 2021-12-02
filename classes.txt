@@ -1,6 +1,5 @@
 My team and I decide to use NoSQL database for this project so classes will not be used. Instead we will be using JSON
 
-User object
-Post object
-Chat object
-Review
+User Model [first name, last name, email, password, college info, social media links, following as followers]
+Post Model[title, body, image, comments, likes, who posted, date]
+Review Model[ who posted, who got reviewed, to, test field]

@@ -1,7 +1,7 @@
 body {
-    background: #e2e8f0
+    
+    background-color: #10214d;
 }
-
 .form-control:focus {
     box-shadow: none;
     border-color: #BA68C8
@@ -33,12 +33,121 @@ body {
 }
 
 .labels {
-    font-size: 11px
+    font-size: 11px;
+    
 }
 
 .add-experience:hover {
     background: #e2e8f0;
-    color: #fff;
+    color: #e2e8f0;
     cursor: pointer;
     border: solid 1px #e2e8f0
 }
+
+
+.navbar{
+    background-color: #ced2da;
+}
+
+
+.time {
+    font-size: 9px !important
+}
+
+.socials i {
+    margin-right: 14px;
+    font-size: 17px;
+    color: #d2c8c8;
+    cursor: pointer
+}
+
+.feed-image img {
+    width: 100%;
+    height: auto
+}
+
+
+
+.profile {
+    /* position: relative; */
+    text-align: center;
+    margin-right: 60px
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: all 2s
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd
+}
+
+.dropdown:hover .dropdown-content {
+    display: block
+}
+
+.profile ul {
+    background-color: #fff;
+    width: 200px;
+    height: 190px;
+    border-radius: 10px;
+    right: 25px;
+    top: 7px;
+    position: absolute;
+    padding: 8px;
+    transition: all 0.5s;
+    z-index: 1
+}
+
+.profile ul::before {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    height: 10px;
+    width: 10px;
+    top: -5px;
+    transform: rotate(45deg)
+}
+
+.profile ul li {
+    list-style: none;
+    text-align: left;
+    font-size: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    border-radius: 4px
+}
+
+.profile ul li:hover {
+    background-color: #eee
+}
+
+.profile ul li i {
+    margin-right: 7px
+}
+
+
+
