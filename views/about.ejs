@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homeify- About Us</title>
+    	
+    <link rel="stylesheet" href="../css/about-index.css">
+
+    <script src="ho.js"></script>
+    
+</head>
+<body>
+<header class="header-area header-sticky wow slideInDown">
+	<div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="home.html" class="logo">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="home.html" class="active">Homeify</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="home.html">Contact Us</a></li> 
+              <li><div class="main-white-button"><a href="javascript: #show-login1();" id="show-login1"><i class="fa fa-plus"></i> LOG IN / Register</a></div></li> 
+            </ul>        
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="main-banner">
+<h2>About Us</h2>
+<div class="float-container">
+
+  <div class="float-child-1">
+    <div class="white"><h3>1. Who are we ?</h3></div>
+  </div>
+  
+  <div class="float-child-2">
+    <div class="black"><h4>We are the students in University of Houston, aspired to learn software design by hands-on experience under the guidance of Professor Amin Alipuri.
+      As part of the course work, we come up with the project of a website where students can easily find roommates and review the rental places.
+    </h4></div>
+  </div>
+  
+</div>
+<div class="float-container">
+
+  <div class="float-child-1">
+    <div class="white"><h3>2. What is Homeify ?</h3></div>
+  </div>
+  
+  <div class="float-child-2">
+    <div class="black"><h4> Homeify is a platform to help college students 
+      who are searching for people with similar interests and can get genuine reviews on existing rental places. 
+      This website allows students to connect with various people by sharing their interests and thoughts on the renting places,
+       so that they can be free from the hurdle of finding people whenever they are moving to new places.</h4></div>
+  </div>
+  <div class="float-container">
+
+  <div class="float-child-1">
+    <div class="white"><h3>3. How is Homeify different from others ?</h3></div>
+  </div>
+  
+  <div class="float-child-2">
+    <div class="black"><h4>Homeify provides you a platform to not just find people, 
+      it gives you a feature to find people with same college and looking for similar rental places. 
+      The post feature allows you to share your views on what kind of places 
+      you're looking for and what you're expecting from your roomies which is something we all wanna do if ever we had a chance.</h4></div>
+  </div>
+  
+</div>
+    <div class="container-fluid">
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            
+          </div>
+        </div>
+  <div class="registerForm">
+        <!-- <form method="POST" action="https://homiefy-group-a.herokuapp.com/register" enctype="multipart/form-data"> -->
+        <form method="POST" action="/api/auth/register" enctype="multipart/form-data">
+            <!--h3>Sign Up</h3> -->
+            <div class="close-btn">&times;</div>
+            <div class="form-group fname">
+                <!-- <label>First name</label> -->
+                <input type="text" name="fname" class="form-control" placeholder="First name" required />
+            </div>
+
+            <div class="form-group">
+                <!-- <label>Last name</label> -->
+                <input type="text" name="lname" class="form-control" placeholder="Last name" required />
+            </div>
+
+            <div class="form-group">
+                <!-- <label>Email address</label> -->
+                <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                    class="form-control" placeholder="Enter email" required />
+            </div>
+
+            <div>
+                <input type="file" name="profilePicture" accept=".jpg, .jpeg, .png">
+            </div>
+
+            <div class="form-group">
+                <!-- <label>Password</label> -->
+                <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+            </div>
+
+            <button class="main-white-button" type="submit">Register</button>
+            <p class="text-white">Already registered? <a id="show-login2">Log in</a></p>
+        </form>
+
+
+    </div>
+
+    <div class="loginForm ">
+        <!-- <form method="POST" action="https://homiefy-group-a.herokuapp.com/login" enctype="multipart/form-data"> -->
+        <form method="POST" action="/api/auth/login" Content-Type="application/json">
+            <!--<h3>LOG IN FORM</h3> -->
+
+
+            <div class="close-btn">&times;</div>
+            <div class="form-group">
+                <!-- <label>Email address</label> -->
+                <input type="email" name="email" pattern="[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$]"
+                    class="form-control" placeholder="Enter email" required />
+            </div>
+
+            <div class="form-group">
+                <!-- <label>Password</label> -->
+                <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+            </div>
+
+            <button class="main-white-button" type="submit">Log in</button>
+            <p class="message text-white">Not registered? <a id="show-register">Register</a></p>
+        </form>
+
+    </div>
+    <script src="../js/index.js"></script>
+   
+</body>
+</html>
