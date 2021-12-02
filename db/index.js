@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const config = require('../config')
 const database_url = config.database_url;
@@ -47,4 +48,6 @@ async function dropDB(){
       await collection.deleteOne()
     }
 }
+
 module.exports = {connect, close, dropDB};
+

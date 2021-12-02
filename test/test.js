@@ -6,7 +6,9 @@ const chaiParam = require('chai-param').param;
 // console.log(process.env.NODE_ENV)
 const app = require('../app');
 const conn = require('../db/index')
+
 var Cookies;
+
 
 describe("Testing RestApi ", () => {
     let userId = '';
@@ -57,9 +59,11 @@ describe("Testing RestApi ", () => {
             expect(body).to.contain.property('lastName')
             expect(body).to.contain.property('email')
             expect(body).to.contain.property('password')
+
             expect(res.statusCode).to.equal(201)
             
             Cookies = res.headers['set-cookie'].pop().split(';')[0];
+
 
             done();
         })
@@ -146,7 +150,9 @@ describe("Testing RestApi ", () => {
             expect(res.statusCode).to.equal(200);
             expect(body).to.contain.property('msg')
 
+
             Cookies = res.headers['set-cookie'].pop().split(';')[0];  //setting user session
+
 
 
 
@@ -227,13 +233,13 @@ describe("Testing RestApi ", () => {
         .then((res)=>{
             const body = res.body;
             const header= res.req._header;
+
             expect(header).to.include(userId)
             expect(body).to.contain.property('_id')
             expect(body).to.contain.property('firstName')
             expect(body).to.contain.property('lastName')
             expect(body).to.contain.property('email')
             expect(body).to.contain.property('password')
-           
 
             done();
         })
@@ -371,8 +377,8 @@ describe("Testing RestApi ", () => {
         
     })
 
-    it('should return empty post and failed to update post', (done)=>{
 
+    it('should return empty post and failed to update post', (done)=>{
 
         request(app)
         .post(`/api/posts/post/${userId}`)
@@ -397,8 +403,8 @@ describe("Testing RestApi ", () => {
         
     })
 
-    it('should fail to update a post ', (done)=>{
 
+    it('should fail to update a post ', (done)=>{
         
         const post = {
             whoPosted: userId,
@@ -428,6 +434,7 @@ describe("Testing RestApi ", () => {
         
         
     })
+
 
     it('should return post no found due to invalid post Id', (done)=>{
 
@@ -562,8 +569,8 @@ describe("Testing RestApi ", () => {
         
     })
 
-    it('should return post no found due to being deleted', (done)=>{
 
+    it('should return post no found due to being deleted', (done)=>{
         request(app)
         .delete(`/api/posts/post/${userId}/${postId}`)
         .set('Accept', 'application/json')

@@ -13,6 +13,7 @@ router.post('/register', async (req,res)=>{
         email: req.body.email
     });
 
+
     if(!newUser.email || !newUser.lastName || !newUser.password || !newUser.firstName) {
 
         if(process.env.NODE_ENV === 'test') return res.status(409).send({"error":"missing fields"});
@@ -40,6 +41,7 @@ router.post('/register', async (req,res)=>{
         
         res.redirect(`/home/${newUser._id}`);
         
+
     }catch(err){
 
        res.status(500).send(err)
@@ -53,6 +55,7 @@ router.post('/register', async (req,res)=>{
 
 
 router.post('/login', async(req,res,next)=>{
+
      
     const email = req.body.email;
     const password = req.body.password;
@@ -66,9 +69,6 @@ router.post('/login', async(req,res,next)=>{
     
     }
 
-
-    
-    
     try{
         const user = await User.findOne({email:email});
       
@@ -78,11 +78,13 @@ router.post('/login', async(req,res,next)=>{
            return res.redirect('/');
                     
         }
+
         const validPassword = await bcrypt.compare(password, user.password)
         
 
             if(validPassword) {
                 
+
                 req.session['currentUser'] = user; 
                 
                 // req.session.save()
@@ -93,6 +95,7 @@ router.post('/login', async(req,res,next)=>{
         else{
             if(process.env.NODE_ENV === 'test') return res.status(400).send({"error":'wrong password'});
             res.redirect('/');
+
 
             return;
         }
@@ -118,6 +121,7 @@ router.get('/logout', (req, res) => {
         }
 
         if(process.env.NODE_ENV === 'test') return res.status(200).send({"msg":"logged out"});
+
         res.redirect('/');
     });
 });
