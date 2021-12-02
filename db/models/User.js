@@ -26,6 +26,7 @@ const UserSchema = new Schema({
         }
     },
     socialMediaLinks:{
+
         type:Object,
         default:{facebook:'',twitter:'',linkedin:'',instagram:''},
         facebook: {
@@ -50,7 +51,6 @@ const UserSchema = new Schema({
             type:String
         }
     }
-
 },
 {timestamps:true, minimize:false},
 { collection : 'users' }

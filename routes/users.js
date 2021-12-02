@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const User = require('../db/models/User')
 const bcrypt = require('bcryptjs');
+
 const Post = require('../db/models/Post')
 const Review = require('../db/models/Review')
 const fileUpload = require('express-fileupload');
@@ -68,9 +69,11 @@ router.get('/profile/:id', async(req,res,next)=>{
     }
     
    
+
   
     
 });
+
 
 
 router.get('/profile-edit/:id', async (req,res) => {
@@ -118,6 +121,7 @@ router.post('/profile-edit/:id', async(req,res)=>{
         if(process.env.NODE_ENV === 'test') return res.status(409).send({"error":"no empty fields"})
         return res.redirect(`/profile-edit/${req.session.currentUser}`)}
 
+
     if(req.body.password){
         
         try{
@@ -130,6 +134,7 @@ router.post('/profile-edit/:id', async(req,res)=>{
         
     }
     try{
+
         
         if(!req.body.profilePicture || !req.body.password){ delete req.body.profilePicture;delete req.body.password} 
         
@@ -139,10 +144,13 @@ router.post('/profile-edit/:id', async(req,res)=>{
         // return res.redirect(`users/profile/${req.session.currentUser._id}`);
         res.redirect(`../profile-edit/${req.session.currentUser._id}`)
 
+
     }catch(err){
 
         console.log(err);
+
         res.status(500).send(err);
+
     }
 
 
@@ -151,6 +159,7 @@ router.post('/profile-edit/:id', async(req,res)=>{
 
 router.delete('/profile/:id', async(req,res)=>{
     
+
     if(!req.session.currentUser){
 
         if(process.env.NODE_ENV === 'test') return res.status(401).send({"error":"Login first"})
@@ -165,11 +174,15 @@ router.delete('/profile/:id', async(req,res)=>{
         if(process.env.NODE_ENV === 'test') return res.status(200).send({"msg":'user deleted'});
 
         res.redirect(200,'logout',msg={"sucess":"account deleted"})
+
+          
         
     }catch(err){
         
         console.log(err);
+
         res.status(500).send(err);
+
     }
     
 

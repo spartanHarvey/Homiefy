@@ -3,7 +3,6 @@ const User = require('../db/models/User')
 const bcrypt = require('bcryptjs');
 
 
-
 //register route
 router.post('/register', async (req,res)=>{
 
@@ -71,8 +70,6 @@ router.post('/login', async(req,res,next)=>{
     }
 
 
-    
-    
     try{
         const user = await User.findOne({email:email});
       
@@ -99,6 +96,7 @@ router.post('/login', async(req,res,next)=>{
         else{
             if(process.env.NODE_ENV === 'test') return res.status(400).send({"error":'wrong password'});
             res.redirect('/');
+
 
             return;
         }
